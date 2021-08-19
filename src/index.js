@@ -22,12 +22,14 @@ const total = (state = 0, action) => {
 const pizzaCart = (state = [], action) => {
     switch(action.type) {
         case ('ADD_PIZZA'):
+            console.log('Add Pizza')
             return [...state, action.payload];
         case ('REMOVE_PIZZA'):
+            console.log('Removed Pizza')
             // need specific info about which pizza to delete
             // this will only work for the basic project
             let newState = [];
-            for (pizza of state) {
+            for (let pizza of state) {
                 if (pizza.name != action.payload.name) {
                     newState.push(pizza);
                 }
