@@ -2,32 +2,37 @@ import axios from "axios";
 import { useState } from "react";
 import {useDispatch} from 'react-redux';
 
-function IndividualPizza({pizza, key}) {
+function IndividualPizza({pizza, key, id}) {
+    console.log('id', id)
+    console.log('key', key)
+    const dispatch = useDispatch();
 
-    const [pizza, setPizza] = useState('');
+    let [removeButton, setRemoveButton] = useState(false);
 
-    // const Submit = (event) => {
-    //     event.preventDefault();
-    //     axios({
-    //         method: 'POST',
-    //         url: '/api/pizza',
-    //         data: {
-    //             name: name,
-    //             description: description,
-    //             price : price
-    //         }
-    //     }).then((response) => {
-    //         pizza.fetchPizzas(response)
-    //     }).catch((error) => {
-    //         console.log('POST error', error)
-    //     })
-    // }
 
+    const Submit = () => {
+        console.log('REMOVE', removeButton);
+        setRemoveButton(!removeButton)
+        let type = 'ADD_PIZZA';
+        console.log('HI', type)
+            if (!removeButton) {
+                type = 'REMOVE_PIZZA'
+            }
+            console.log('TYPE', type)
+        dispatch({ 
+            type: type,
+            payload: pizza
+        });
+    }
+   
 
     return (
         <>
         <p>{pizza.name} {pizza.description} {pizza.price}</p>
-        <button onClick={Submit}>Add Pizza</button>
+        {removeButton ?  
+        <button onClick={Submit}>Remove Pizza</button>
+        : <button onClick={Submit}>Add Pizza</button>
+        }
         </>
 
 

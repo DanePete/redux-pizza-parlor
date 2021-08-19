@@ -1,8 +1,10 @@
 // TODO
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import IndividualPizza from '../IndividualPizza/IndividualPizza';
 
 function OrderScreen({list}) {
+  console.log('PIZZA', list)
 
   // allows us to access a history variable
   const history = useHistory();
@@ -17,16 +19,16 @@ function OrderScreen({list}) {
   }
 
   return (
-    <>
+    <div className="PizzaContainer">
       {list.map((pizza, i) => {
-      <IndividualPizza 
+        return <IndividualPizza 
         key={i} 
+        id={i}
         pizza={pizza}  
-      />;
+      />
       })}
-
     <button onClick={goToCustInformation}>NEXT</button>
-    </>
+    </div>
   )
 }
 
