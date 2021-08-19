@@ -1,8 +1,20 @@
 // TODO
-import IndividualPizza from "../IndividualPizza/IndividualPizza";
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 function OrderScreen({list}) {
-  console.log('our list is', list);
+
+  // allows us to access a history variable
+  const history = useHistory();
+
+  const goToCustInformation = () => {
+    let isConfirmed = confirm("Does this complete your order?")
+
+    
+    if (isConfirmed) {
+      history.push('/customer-information');
+    }
+  }
 
   return (
     <>
@@ -12,6 +24,8 @@ function OrderScreen({list}) {
         pizza={pizza}  
       />;
       })}
+
+    <button onClick={goToCustInformation}>NEXT</button>
     </>
   )
 }
