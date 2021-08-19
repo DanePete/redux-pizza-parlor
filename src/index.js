@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
-import Provider from 'redux';
-import { combineReducers, useStore } from 'redux';
+import { Provider } from 'react-redux';
+import { combineReducers, createStore } from 'redux';
 
 
 
