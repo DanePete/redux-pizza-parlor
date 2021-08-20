@@ -30,32 +30,32 @@ function App() {
       <header className='App-header'>
         <h1 className='App-title'>Prime Pizza</h1>
 
-        <Router>
-
-          <Route path="/" exact>
-            <OrderScreen 
-                list = {pizzas} 
-            />
-          </Route>
-
-          <Route path="/customer-information" exact>
-            { /* CREATE COMPONENT */}
-          </Route>
-
-          <Route path="/checkout" exact>
-            { /* CREATE COMPONENT checkout */}
-          </Route>
-
-          <Route path="/admin" exact>
-            { /* CREATE COMPONENT ADMIN */}
-          </Route>
-
-        </Router> 
-
       </header>
   
       <img src='images/pizza_photo.png' />
       <p>Pizza is great.</p>
+
+      <Router>
+
+      <Route path="/" exact>
+        <OrderScreen 
+            list = {pizzas} 
+        />
+      </Route>
+
+      <Route path="/customer-information" exact>
+        { /* CREATE COMPONENT */}
+      </Route>
+
+      <Route path="/checkout" exact>
+        { /* CREATE COMPONENT checkout */}
+      </Route>
+
+      <Route path="/admin" exact>
+        { /* CREATE COMPONENT ADMIN */}
+      </Route>
+
+      </Router> 
 
     </div>
   );
