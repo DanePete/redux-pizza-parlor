@@ -5,14 +5,19 @@ function CheckoutScreen() {
     let [customerInfo, pizzaList, total] = useSelector(state => 
             [state.customerInfo, state.pizzaCart, state.total]); 
 
+    const order = () => {
+
+    }
+
     // note changes will need to be made depending on how reducer is set up.
     return (
         <>
         {/* display checkout info, seperate div for deliver/pickup */}
-        <p>{customerInfo.name}</p>
+        <p>{customerInfo.customer_name}</p>
         <p>{customerInfo.address}</p>
         <p>{customerInfo.city}</p>
         <p>{customerInfo.zip}</p>
+        <p>{customerInfo.type}</p>
         {/* display pizzas in table - col: name, col: cost */}
         <table>
             <thead>
@@ -31,7 +36,9 @@ function CheckoutScreen() {
             </tbody>
         </table>
         {/* display total */}
+        <p>{total}</p>
         {/* checkout button */}
+        <button onClick={order}>CHECKOUT</button>
         </>
     );
 };
