@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './App.css';
 import OrderScreen from '../OrderScreen/OrderScreen';
+import CustomerInfo from '../CustomerInfo/CustomerInfo';
 import { useEffect } from 'react';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
@@ -44,7 +45,7 @@ function App() {
       </Route>
 
       <Route path="/customer-information" exact>
-        { /* CREATE COMPONENT */}
+        <CustomerInfo />
       </Route>
 
       <Route path="/checkout" exact>
