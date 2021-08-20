@@ -5,6 +5,7 @@ import OrderScreen from '../OrderScreen/OrderScreen';
 import CustomerInfo from '../CustomerInfo/CustomerInfo';
 import { useEffect } from 'react';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import CheckoutScreen from '../CheckoutScreen/CheckoutScreen';
 
 function App() {
 
@@ -50,6 +51,7 @@ function App() {
 
       <Route path="/checkout" exact>
         { /* CREATE COMPONENT checkout */}
+        <CheckoutScreen />
       </Route>
 
       <Route path="/admin" exact>

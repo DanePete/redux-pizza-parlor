@@ -1,18 +1,39 @@
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
+import {useHistory} from "react-router-dom"
+import axios from 'axios';
 
 function CheckoutScreen() {
+    const history = useHistory();
+    const dispatch = useDispatch();
 
-    let [customerInfo, pizzaList, total] = useSelector(state => 
-            [state.customerInfo, state.pizzaCart, state.total]); 
+    let [customerInfo, pizzas, total] = useSelector(state => {
+        return [state.customerInfo, state.pizzaCart, state.total]
+    }); 
 
-    // note changes will need to be made depending on how reducer is set up.
+    const order = () => {
+        axios({
+            method: 'POST',
+            url: '/api/order',
+            data: { ...customerInfo, total, pizzas}
+        }).then(response => {
+            history.push('/');
+            dispatch({
+                type: 'CLEAR'
+            });
+        }).catch(error => {
+            console.log('Failed to POST: ', error);
+            alert('Failed to POST. See console for details.');
+        });
+    }
+    
     return (
         <>
         {/* display checkout info, seperate div for deliver/pickup */}
-        <p>{customerInfo.name}</p>
-        <p>{customerInfo.address}</p>
+        <p>{customerInfo.customer_name}</p>
+        <p>{customerInfo.street_address}</p>
         <p>{customerInfo.city}</p>
         <p>{customerInfo.zip}</p>
+        <p>{customerInfo.type}</p>
         {/* display pizzas in table - col: name, col: cost */}
         <table>
             <thead>
@@ -23,7 +44,7 @@ function CheckoutScreen() {
             </thead>
             <tbody>
                 {/* map function to create rows */}
-                {pizzaList.map(pizza => 
+                {pizzas.map(pizza => 
                     <tr>
                         <td>{pizza.name}</td>
                         <td>{pizza.price}</td>
@@ -31,7 +52,9 @@ function CheckoutScreen() {
             </tbody>
         </table>
         {/* display total */}
+        <p>{total}</p>
         {/* checkout button */}
+        <button onClick={order}>CHECKOUT</button>
         </>
     );
 };

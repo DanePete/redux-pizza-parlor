@@ -14,6 +14,8 @@ const total = (state = 0, action) => {
             return state + Number(action.payload.price);
         case ('REMOVE_PIZZA'):
             return state - Number(action.payload.price);
+        case ('CLEAR'):
+            return 0
         default:
     }
     return state
@@ -34,15 +36,18 @@ const pizzaCart = (state = [], action) => {
                 }
             }
             return newState;
+        case ('CLEAR'):
+            return []
     }
     return state;
 };
 
 const customerInfo = (state = {}, action) => {
-
         switch(action.type) {
             case ('ADD_CUSTOMER_INFORMATION'):
                 return action.payload;
+            case ('CLEAR'):
+                return {}
             default:
 
         }

@@ -18,7 +18,7 @@ function IndividualPizza({pizza, id}) {
             }
         dispatch({ 
             type: type,
-            payload: pizza
+            payload: {...pizza, quantity: 1}
         });
     }
    
