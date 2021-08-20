@@ -34,7 +34,6 @@ const pizzaCart = (state = [], action) => {
                 }
             }
             return newState;
-
     }
     return state;
 };
