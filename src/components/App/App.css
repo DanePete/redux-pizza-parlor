@@ -13,3 +13,9 @@
 .App-title {
   font-size: 2em;
 }
+
+.header-container {
+  display: flex;
+  width: 20%;
+  margin: 0 auto;
+}
