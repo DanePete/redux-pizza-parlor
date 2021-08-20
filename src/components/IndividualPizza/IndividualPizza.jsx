@@ -28,8 +28,8 @@ function IndividualPizza({pizza, id}) {
         
         <p>{pizza.name} {pizza.description} {pizza.price}</p>
         {removeButton ?  
-        <button onClick={Submit}>Remove Pizza</button>
-        : <button onClick={Submit}>Add Pizza</button>
+        <button className="btn btn-primary" onClick={Submit}>Remove Pizza</button>
+        : <button className="btn btn-primary" onClick={Submit}>Add Pizza</button>
         }
         </>
 

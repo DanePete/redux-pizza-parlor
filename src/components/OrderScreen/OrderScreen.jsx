@@ -27,7 +27,7 @@ function OrderScreen({list}) {
         pizza={pizza}  
       />
       })}
-    <button onClick={goToCustInformation}>NEXT</button>
+    <button className="btn btn-primary" onClick={goToCustInformation}>NEXT</button>
     </div>
   )
 }
