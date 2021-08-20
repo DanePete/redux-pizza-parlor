@@ -5,8 +5,6 @@ import App from './components/App/App';
 import { Provider } from 'react-redux';
 import { combineReducers, createStore } from 'redux';
 
-
-
 // Reducers
 const total = (state = 0, action) => {
     switch(action.type) {
@@ -22,7 +20,6 @@ const total = (state = 0, action) => {
 }
 
 const pizzaCart = (state = [], action) => {
-
     switch(action.type) {
         case ('ADD_PIZZA'):
             return [...state, action.payload];

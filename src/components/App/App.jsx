@@ -4,6 +4,7 @@ import './App.css';
 import OrderScreen from '../OrderScreen/OrderScreen';
 import CustomerInfo from '../CustomerInfo/CustomerInfo';
 import Header from '../Header/Header';
+import Admin from '../Admin/Admin';
 import { useEffect } from 'react';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import CheckoutScreen from '../CheckoutScreen/CheckoutScreen';
@@ -53,7 +54,7 @@ function App() {
       </Route>
 
       <Route path="/admin" exact>
-        { /* CREATE COMPONENT ADMIN */}
+        <Admin />
       </Route>
 
       </Router> 

@@ -61,10 +61,12 @@ function CustomerInfo() {
     <>
     <h2>Step 2: Customer Information</h2>
     <form onSubmit={(event) => dispatchCustomerInfo(event)}>
+      <div className="input-container">
         <input
           onChange={handleCustName}
           value= {customerInfo.customer_name}
           type='text'
+          className="form-control"
           placeholder='Name'
         />
 
@@ -72,6 +74,7 @@ function CustomerInfo() {
           onChange={handleStreetAddress}
           value= {customerInfo.street_address}
           type='text'
+          className="form-control"
           placeholder='Street Address'
         />
 
@@ -79,6 +82,7 @@ function CustomerInfo() {
           onChange={handleCity}
           value= {customerInfo.city}
           type='text'
+          className="form-control"
           placeholder='City'
         />         
 
@@ -86,8 +90,11 @@ function CustomerInfo() {
           onChange={handleZip}
           value= {customerInfo.zip}
           type='text'
+          className="form-control"
           placeholder='Zip'
         />      
+      </div>
+
 
         <label for="pickup">Pickup</label>     
 
@@ -110,7 +117,7 @@ function CustomerInfo() {
           />
         </div>
                               
-        <input type='submit' value='Submit' />
+        <input className="btn btn-primary" type='submit' value='Submit' />
     </form>
 
       {/* <button onClick={goToCheckOut}>NEXT</button> */}

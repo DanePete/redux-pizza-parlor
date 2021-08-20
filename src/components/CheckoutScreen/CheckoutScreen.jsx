@@ -48,13 +48,13 @@ function CheckoutScreen() {
                     <tr>
                         <td>{pizza.name}</td>
                         <td>{pizza.price}</td>
-                        </tr>)}
+                    </tr>)}
             </tbody>
         </table>
         {/* display total */}
         <p>{total}</p>
         {/* checkout button */}
-        <button onClick={order}>CHECKOUT</button>
+        <button className="btn btn-primary" onClick={order}>CHECKOUT</button>
         </>
     );
 };
