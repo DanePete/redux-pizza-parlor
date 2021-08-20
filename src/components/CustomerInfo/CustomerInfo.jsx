@@ -51,10 +51,10 @@ function CustomerInfo() {
     console.log('our cust info', customerInfo);
     event.preventDefault();
     dispatch({
-      type: 'ADD_CUSTOMER_INFO',
+      type: 'ADD_CUSTOMER_INFORMATION',
       payload: customerInfo
     });
-    // history.push('/understanding');
+    history.push('/checkout');
   }
 
   return (

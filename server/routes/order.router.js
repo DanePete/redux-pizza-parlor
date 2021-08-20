@@ -27,6 +27,7 @@ router.post('/', async (req, res) => {
             total,
             pizzas
         } = req.body;
+        console.log('the pizza array we received from the client is: ', pizzas)
         await client.query('BEGIN')
         const orderInsertResults = await client.query(`INSERT INTO "orders" ("customer_name", "street_address", "city", "zip", "type", "total")
         VALUES ($1, $2, $3, $4, $5, $6)
@@ -34,12 +35,15 @@ router.post('/', async (req, res) => {
         const orderId = orderInsertResults.rows[0].id;
 
         await Promise.all(pizzas.map(pizza => {
+            console.log('pizza', pizza)
+            console.log('quantity', pizza.quantity);
             const insertLineItemText = `INSERT INTO "line_item" ("order_id", "pizza_id", "quantity") VALUES ($1, $2, $3)`;
             const insertLineItemValues = [orderId, pizza.id, pizza.quantity];
             return client.query(insertLineItemText, insertLineItemValues);
         }));
 
         await client.query('COMMIT')
+        console.log('success posting to db')
         res.sendStatus(201);
     } catch (error) {
         await client.query('ROLLBACK')
