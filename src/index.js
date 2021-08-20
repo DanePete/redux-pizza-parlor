@@ -11,21 +11,20 @@ import { combineReducers, createStore } from 'redux';
 const total = (state = 0, action) => {
     switch(action.type) {
         case ('ADD_PIZZA'):
-            return state + action.payload.price;
+            return state + Number(action.payload.price);
         case ('REMOVE_PIZZA'):
-            return state - action.payload.price;
+            return state - Number(action.payload.price);
         default:
     }
     return state
 }
 
 const pizzaCart = (state = [], action) => {
+
     switch(action.type) {
         case ('ADD_PIZZA'):
-            console.log('Add Pizza')
             return [...state, action.payload];
         case ('REMOVE_PIZZA'):
-            console.log('Removed Pizza')
             // need specific info about which pizza to delete
             // this will only work for the basic project
             let newState = [];
